@@ -8,6 +8,11 @@ public class SensorManager {
     SensorObserver sensorObserver;
     AccidentDetector accidentDetector;
 
+    public SensorManager(){
+        this.sensorObserver = new SensorObserver();
+        this.accidentDetector = new AccidentDetector();
+    }
+
     public Accident Detect()
     {
         //TODO

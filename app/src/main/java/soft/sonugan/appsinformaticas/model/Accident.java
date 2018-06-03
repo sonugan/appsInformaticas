@@ -14,4 +14,8 @@ public class Accident {
     public Accident(Timestamp time){
         this.time = time;
     }
+
+    public Timestamp getTime(){
+        return this.time;
+    }
 }

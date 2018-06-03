@@ -5,4 +5,19 @@ package soft.sonugan.appsinformaticas.model;
  */
 
 public class DirectionVector {
+    private Position primaryVector;
+    private Position secondaryVector;
+
+    public DirectionVector(Position primaryVector, Position secondaryVector){
+        this.primaryVector = primaryVector;
+        this.secondaryVector = secondaryVector;
+    }
+
+    public Position getPrimaryVector(){
+        return this.primaryVector;
+    }
+
+    public Position getSecondaryVector(){
+        return this.secondaryVector;
+    }
 }

@@ -6,7 +6,8 @@ package soft.sonugan.appsinformaticas.model;
 
 public class AccidentDetector {
     AccidentDetector next;
-    boolean isAnAccident()
+
+    public boolean isAnAccident(ContextParameters parameters)
     {
         //TODO
         return false;

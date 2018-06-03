@@ -1,5 +1,7 @@
 package soft.sonugan.appsinformaticas.model;
 
+import android.location.Location;
+
 import soft.sonugan.appsinformaticas.model.ISensorObserver;
 
 /**
@@ -7,9 +9,16 @@ import soft.sonugan.appsinformaticas.model.ISensorObserver;
  */
 
 public class SensorObserver implements ISensorObserver {
+    private Position currentPosition;
 
     @Override
     public void update(ISensor sensor) {
-        //TODO
+        if(sensor.getClass() == Gps.class){
+            currentPosition = ((Gps)sensor).getCurrentPosition();
+        }
+    }
+
+    public Position getCurrentLocation(){
+        return this.currentPosition;
     }
 }
