@@ -9,7 +9,8 @@ import java.util.List;
  */
 
 public class ContextParameters {
-    public List<Position> lastPositions;
-    public List<DirectionVector> lastDirectionVectors;
+    public Queue<Position> lastPositions;
+    public Queue<DirectionVector> lastDirectionVectors;
     public DirectionVector directionVector;
+    public Queue<Acceleration> lastAccelerations;
 }

@@ -12,26 +12,39 @@ import soft.sonugan.appsinformaticas.model.ISensorObserver;
  */
 
 public class SensorObserver implements ISensorObserver {
-    private LinkedList<Position> lastPositions;
+    private Queue<Position> lastPositions;
+    private Queue<Acceleration> lastAccelerations;
+
+    private static final int MAX_POSITION_INQUEUE = 5;
+    private static final int MAX_ACCELERATIONS_INQUEUE = 5;
+
+    public SensorObserver(){
+        this.lastPositions = new Queue<Position>(MAX_POSITION_INQUEUE);
+        this.lastAccelerations = new Queue<Acceleration>(MAX_ACCELERATIONS_INQUEUE);
+    }
 
     @Override
     public void update(ISensor sensor) {
         if(sensor.getClass() == Gps.class){
-            addPosition(((Gps)sensor).getCurrentPosition());
+            this.lastPositions.push(((Gps)sensor).getCurrentPosition());
         } else if(sensor.getClass() == Accelerometer.class){
-
+            this.lastAccelerations.push(((Accelerometer)sensor).getCurrentAcceleration());
         }
     }
 
     public Position getCurrentLocation(){
         return this.lastPositions.peek();
     }
-    public List<Position> getLastPositions() { return this.lastPositions; }
 
-    private void addPosition(Position position){
-        if(lastPositions.size() > 5){
-            lastPositions.removeFirst();
-        }
-        lastPositions.addLast(position);
+    public Queue<Position> getLastPositions() {
+        return this.lastPositions;
+    }
+
+    public Acceleration getCurrentAcceleration(){
+        return this.lastAccelerations.peek();
+    }
+
+    public Queue<Acceleration> getLastAccelerations() {
+        return this.lastAccelerations;
     }
 }

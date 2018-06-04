@@ -29,4 +29,8 @@ public class DirectionVector {
     public Position getDirection() throws CoordenadeOutOfRangeException, NullPositionException {
         return this.primaryVector.substract(this.secondaryVector);
     }
+
+    public double angle(DirectionVector vector) throws NullPositionException, CoordenadeOutOfRangeException {
+        return this.getDirection().angle(vector.getDirection());
+    }
 }

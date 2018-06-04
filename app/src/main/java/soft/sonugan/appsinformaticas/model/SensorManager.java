@@ -1,5 +1,7 @@
 package soft.sonugan.appsinformaticas.model;
 
+import soft.sonugan.appsinformaticas.model.detectors.NoAccidentDetector;
+
 /**
  * Created by gaston on 02/06/2018.
  */
