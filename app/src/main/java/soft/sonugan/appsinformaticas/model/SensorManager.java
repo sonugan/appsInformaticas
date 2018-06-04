@@ -6,16 +6,14 @@ package soft.sonugan.appsinformaticas.model;
 
 public class SensorManager {
     SensorObserver sensorObserver;
-    AccidentDetector accidentDetector;
+    AccidentDetector accidentDetectorChain;
 
     public SensorManager(){
         this.sensorObserver = new SensorObserver();
-        this.accidentDetector = new AccidentDetector();
+        this.accidentDetectorChain = new NoAccidentDetector(null);
     }
 
-    public Accident Detect()
-    {
-        //TODO
-        return null;
+    public Accident detect(ContextParameters parameters){
+        return this.accidentDetectorChain.detect(parameters);
     }
 }

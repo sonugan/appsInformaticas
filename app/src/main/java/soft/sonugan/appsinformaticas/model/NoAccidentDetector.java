@@ -5,8 +5,13 @@ package soft.sonugan.appsinformaticas.model;
  */
 
 public class NoAccidentDetector extends AccidentDetector {
+
+    public NoAccidentDetector(AccidentDetector next){
+        super(next);
+    }
+
     @Override
-    public boolean isAnAccident(ContextParameters parameters) {
-        return super.isAnAccident(parameters);
+    public Accident detect(ContextParameters parameters) {
+        return super.detect(parameters);
     }
 }
